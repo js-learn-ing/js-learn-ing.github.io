@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0,user-scalable=0">
+	<title>我的上传</title>
+    <link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/upload.css">
+</head>
+<body>
+	<div class="wrap">
+		<div class="header">
+            <a href="javascript:history.go(-1);"><img src="../img/gt.png" /></a>
+            <h3>我的上传</h3>
+        </div>
+		<div class="content">
+			<div class="shuru">
+				<textarea placeholder="这一刻想说什么......"></textarea>
+				<ul class="clear" id="box">
+					<li class="fl fileBtn">
+						<form enctype="multipart/form-data" method="post">
+							<input type="file" id="piclj" multiple="true">
+							<img src="../img/4.png" />
+						</form>
+					</li>
+				</ul>
+			</div>
+			<div class="place clear">
+				<div class="fl"><img src="../img/2.png" /></div>
+				<p class="fl">我的位置</p>
+			</div>
+			<div class="who clear">
+				<div class="fl"><img src="../img/3.png" /></div>
+				<p class="fl">不让谁看我的状态</p>
+			</div>
+		</div>
+		<div class="footer">
+			<p>我要上传</p>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="../js/jquery-3.0.0.min.js"></script>
+<script type="text/javascript">
+	var picLj = document.querySelector('#piclj'); 
+	var fileBtn = document.querySelector('.fileBtn');
+	
+
+	// fileBtn.addEventListener("click",function() {		
+	// 	picLj.click();
+	// })
+	picLj.onchange = function(){
+		var arr = picLj.files;
+		for(var i=0;i<arr.length;i++){
+			var url= URL.createObjectURL(picLj.files[i])
+			var li = $('<li class="fl"><img src="'+url+'" alt="" /></li>') 
+			li.insertBefore('.fileBtn')
+
+		}			
+	}
+
+
+
+</script>
+</html>
